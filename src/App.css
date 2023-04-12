@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+html {
+  --header-height: 70px;
+  --hover-color: rgb(242, 242, 242);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  height: var(--header-height);
+  box-sizing: border-box;
+  background-color: white;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  text-align: center;
+  height: 100%;
+  width: 400px;
+}
+
+.right {
+  padding: 20px;
+}
+
+.headerElem {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.title.headerElem {
+  font-weight: bold;
+}
+
+.headerElem:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+}
+
+.home {
+  height: calc(100vh - var(--header-height));
+  width: 100vw;
+  background-image: url('./images/SuitsOnDummies.jpg');
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.basket {
+  font-size: 26px;
+  padding: 6px;
+  border-radius: 50%;  
+}
+
+.basket:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+}
+
+.headerBasket {
+  position: relative;
+}
+
+.badge {
+  width: 8px;
+  height: 8px;
+  font-size: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  background-color: red;
+  padding: 5px;
+  text-align: center;
 }
