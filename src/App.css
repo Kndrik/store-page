@@ -163,7 +163,7 @@ a {
   align-items: center;
   gap: 10px;
   width: 100vw;
-  background-color: rgba(68, 46, 40, 0.411);
+  background-color: rgba(22, 14, 12, 0.411);
   padding: 50px;
 }
 
@@ -199,4 +199,46 @@ a {
 .customButton:hover {
   cursor: pointer;
   background-color: var(--hover-color);
+}
+
+.about {
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutContainer {
+  width: 700px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 30px 1fr;
+  gap: 30px;
+}
+
+.aboutContainer img {
+  max-width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.aboutContainer h1,
+.aboutContainer p {
+  grid-column: 2/3;
+}
+
+.aboutContainer h1 {
+  grid-row: 1/2;
+}
+
+.aboutContainer p {
+  grid-row: 2/3;
+  margin: 0;
+  font-weight: 300;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
 }
