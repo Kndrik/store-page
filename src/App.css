@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
 html {
   --header-height: 70px;
-  --hover-color: rgb(242, 242, 242);
+  --text-special-color: rgb(68, 46, 40);
+  --hover-color: rgb(241, 235, 233);
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
+  background-color: var(--hover-color);
 }
 
 .material-symbols-outlined {
@@ -24,6 +29,7 @@ body {
   align-items: center;
   padding-left: 10px;
   padding-right: 20px;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 @media (min-width:700px) {
@@ -42,10 +48,12 @@ body {
 
 .headerElem {
   flex: 1;
+  color: var(--text-special-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: font-size 0.3s, background-color 0.6s;
+  transition: font-size 0.3s, background-color 0.3s;
+  font-weight: 300;
 }
 
 .title.headerElem {
@@ -57,6 +65,11 @@ body {
   background-color: var(--hover-color);
   font-size: 17px;
 }
+
+.headerElem.active {
+  background-color: rgb(250, 247, 247);
+}
+
 
 .home {
   height: calc(100vh - var(--header-height));
@@ -70,7 +83,7 @@ body {
   font-size: 26px;
   padding: 10px;
   border-radius: 50%;  
-  transition: font-size 0.3s, background-color 0.4s;
+  transition: font-size 0.3s, background-color 0.3s;
 }
 
 .basket:hover {
@@ -98,4 +111,61 @@ body {
   background-color: red;
   padding: 5px;
   text-align: center;
+  border: 2px solid white;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100vw;
+  background-color: rgba(68, 46, 40, 0.411);
+  padding: 50px;
+}
+
+.homeTitle {
+  font-size: 72px;
+  color: white;
+}
+
+.homeTitle.thin {
+  font-size: 58px;
+  font-weight: 100;
+}
+
+.customButton { 
+  height: 50px;
+  width: 150px;
+  padding: 20px 30px 20px 30px;
+  border: none;
+  border-radius: 2px;
+  color: var(--text-special-color);
+  font-size: 17px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.homeButton {
+  margin-top: 20px;
+}
+
+.customButton:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
 }
