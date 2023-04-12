@@ -1,7 +1,12 @@
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-const Home = () => {
+const Home = (props) => {
+    useEffect(() => {
+        props.onChange();
+    }, []);
+
     return (
         <div className="home">
             <div className="homeContainer">

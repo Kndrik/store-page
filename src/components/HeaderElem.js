@@ -8,6 +8,7 @@ const HeaderElem = (props) => {
         className={({ isActive, isPending }) =>
             isPending ? "pending " + classes : isActive ? "active " + classes : classes
         }
+        onClick={props.onChange}
         >{props.text}</NavLink>
     )
 }

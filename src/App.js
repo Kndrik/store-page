@@ -8,14 +8,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [articlesAmount, setArticlesAmount] = useState(1);
+  const [isHome, setIsHome] = useState(true);
+  let classes = "pageContainer" + (isHome ? " visible" : "");
   return (
       <BrowserRouter>
-          <Header articlesAmount={articlesAmount}/>
+        <div className={classes}>
+          <Header isHome={isHome} articlesAmount={articlesAmount}/>
           <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/" element={<Home onChange={() => setIsHome(true)} />} />
+              <Route path="/shop" element={<Shop onChange={() => setIsHome(false)}/>} />
+              <Route path="/about" element={<About onChange={() => setIsHome(false)}/>} />
           </Routes>
+        </div>
       </BrowserRouter>
   );
 }

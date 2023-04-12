@@ -2,8 +2,9 @@ import HeaderElem from "./HeaderElem";
 import HeaderBasket from "./HeaderBasket";
 
 const Header = (props) => {
+    let classes = "header" + (props.isHome ? " transparent" : "");
     return (
-        <div className="header">
+        <div className={classes}>
             <div className="left">
                 <HeaderElem linkTo="/" text="CAFE BUSINESS" classes="title"/>
                 <HeaderElem linkTo="/shop" text="SHOP" />

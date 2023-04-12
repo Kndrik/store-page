@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
 html {
-  --header-height: 70px;
+  --header-height: 50px;
   --text-special-color: rgb(68, 46, 40);
   --hover-color: rgb(241, 235, 233);
   font-family: 'Roboto', sans-serif;
@@ -10,6 +10,17 @@ html {
 body {
   margin: 0;
   background-color: var(--hover-color);
+}
+
+.pageContainer {
+  transition: background-image 1s;
+  background-image: none;
+}
+
+.pageContainer.visible {
+  background-image: url('./images/SuitsOnDummies.jpg');
+  background-size: cover;
+  background-position: bottom center;
 }
 
 .material-symbols-outlined {
@@ -23,13 +34,22 @@ body {
 .header {
   height: var(--header-height);
   box-sizing: border-box;
-  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 10px;
   padding-right: 20px;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  transition: background-color 0.5s;
+  background-color: white;
+}
+
+.header.transparent {
+  background-color: transparent;
+}
+
+.header.transparent:hover {
+  background-color: white;
 }
 
 @media (min-width:700px) {
@@ -48,17 +68,22 @@ body {
 
 .headerElem {
   flex: 1;
-  color: var(--text-special-color);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: font-size 0.3s, background-color 0.3s;
   font-weight: 300;
+  color: var(--text-special-color);
 }
 
-.title.headerElem {
-  font-weight: bold;
+.header.transparent .headerElem {
+  color: white;
 }
+
+.header.transparent:hover .headerElem {
+  color: var(--text-special-color);
+}
+
 
 .headerElem:hover {
   cursor: pointer;
@@ -67,16 +92,13 @@ body {
 }
 
 .headerElem.active {
-  background-color: rgb(250, 247, 247);
+  font-weight: bold;
 }
 
 
 .home {
   height: calc(100vh - var(--header-height));
   width: 100vw;
-  background-image: url('./images/SuitsOnDummies.jpg');
-  background-size: cover;
-  background-position: bottom center;
 }
 
 .basket {
@@ -84,6 +106,15 @@ body {
   padding: 10px;
   border-radius: 50%;  
   transition: font-size 0.3s, background-color 0.3s;
+  color: var(--text-special-color);
+}
+
+.header.transparent .basket {
+  color: white;
+}
+
+.header.transparent:hover .basket {
+  color: var(--text-special-color);
 }
 
 .basket:hover {
@@ -97,8 +128,8 @@ body {
 }
 
 .badge {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   font-size: 12px;
   border-radius: 50%;
   display: flex;
@@ -107,7 +138,7 @@ body {
   color: white;
   position: absolute;
   right: 0;
-  bottom: -5px;
+  bottom: -1px;
   background-color: red;
   padding: 5px;
   text-align: center;
@@ -162,7 +193,7 @@ a {
 }
 
 .homeButton {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .customButton:hover {
