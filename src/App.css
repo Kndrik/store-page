@@ -22,17 +22,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+@media (min-width:700px) {
+  .header {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 
 .left {
   display: flex;
   text-align: center;
   height: 100%;
-  width: 400px;
-}
-
-.right {
-  padding: 20px;
+  width: 500px;
 }
 
 .headerElem {
@@ -40,6 +45,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: font-size 0.3s, background-color 0.6s;
 }
 
 .title.headerElem {
@@ -49,6 +55,7 @@ body {
 .headerElem:hover {
   cursor: pointer;
   background-color: var(--hover-color);
+  font-size: 17px;
 }
 
 .home {
@@ -61,12 +68,14 @@ body {
 
 .basket {
   font-size: 26px;
-  padding: 6px;
+  padding: 10px;
   border-radius: 50%;  
+  transition: font-size 0.3s, background-color 0.4s;
 }
 
 .basket:hover {
   cursor: pointer;
+  font-size: 27px;
   background-color: var(--hover-color);
 }
 
@@ -75,8 +84,8 @@ body {
 }
 
 .badge {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   font-size: 12px;
   border-radius: 50%;
   display: flex;
