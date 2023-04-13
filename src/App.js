@@ -16,7 +16,7 @@ function App() {
           <Header isHome={isHome} articlesAmount={articlesAmount}/>
           <Routes>
               <Route path="/" element={<Home onChange={() => setIsHome(true)} />} />
-              <Route path="/shop" element={<Shop onChange={() => setIsHome(false)}/>} />
+              <Route path="/shop/:category" element={<Shop onChange={() => setIsHome(false)}/>} />
               <Route path="/about" element={<About onChange={() => setIsHome(false)}/>} />
           </Routes>
         </div>

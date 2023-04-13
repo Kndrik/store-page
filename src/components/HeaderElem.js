@@ -14,11 +14,11 @@ const HeaderElem = (props) => {
             <div className="dropDown">
                 <ul className="dropDownList">
                     {
-                        props.categories?.map((c) => {
-                            console.log('hello');
+                        props.categories?.map((c, i) => {
+                            const link = "/shop/" + c;
                             return (
-                                <li className="categoryElem">
-                                    <Link to="/shop">{c}</Link>
+                                <li key={i} className="categoryElem">
+                                    <Link onClick={props.onChange} className="categoryLink" to={link}>{c}</Link>
                                 </li>
                             );
                         })

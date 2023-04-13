@@ -1,18 +1,43 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ItemCard from "../ItemCard";
+import { useParams } from "react-router-dom";
 
 const Shop = (props) => {
+    const [items, setItems] = useState([]);
+    const { category } = useParams();
+
     useEffect(() => {
         props.onChange();
-    }, []);
+        fetchItemsFromCategory();
+        // category.forEach((category) => {
+        //     fetchItemsFromCategory(category);
+        // });
+    }, [category]);
+
+    async function fetchItemsFromCategory() {
+        let result = category === 'all' ? 
+            await fetch('https://fakestoreapi.com/products') :
+            await fetch(`https://fakestoreapi.com/products/category/${category}`);
+        result = await result.json();
+        console.log(result);
+        setItems(result);
+        console.log(items);
+    }
 
     return (
         <div className="shop">
-            <ItemCard price={59} name={"Jeans"} image={"https://s7d2.scene7.com/is/image/PoloGSI/s7-1464520_lifestyle?$jp_plp_lif$"} />
-            <ItemCard price={61} name={"Hoodie"} image={"https://s7d2.scene7.com/is/image/PoloGSI/s7-1464520_lifestyle?$jp_plp_lif$"} />
-            <ItemCard price={61} name={"Hoodie"} image={"https://s7d2.scene7.com/is/image/PoloGSI/s7-1464520_lifestyle?$jp_plp_lif$"} />
-            <ItemCard price={61} name={"Hoodie"} image={"https://s7d2.scene7.com/is/image/PoloGSI/s7-1464520_lifestyle?$jp_plp_lif$"} />
-            <ItemCard price={61} name={"Hoodie"} description="Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday" image={"https://s7d2.scene7.com/is/image/PoloGSI/s7-1464520_lifestyle?$jp_plp_lif$"} />
+            {
+                items.map((item, i) => {
+                    return (
+                        <ItemCard price={item.price}
+                                  name={item.title}
+                                  image={item.image}
+                                  description={item.description}
+                                  key={i}
+                        />
+                    );
+                })
+            }
         </div>
     );
 }

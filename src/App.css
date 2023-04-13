@@ -115,6 +115,14 @@ body {
   padding-left: 20px;
 }
 
+.categoryLink {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
 .categoryElem:hover {
   text-decoration: underline;
 }
@@ -289,22 +297,37 @@ h1 {
 .shop {
   padding: 30px;
   display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+  grid-template-columns: 1fr 1fr;
   grid-auto-flow: row;
 }
 
+
+@media (min-width: 600px) {
+  .shop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .shop {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .itemCard {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  aspect-ratio: 2/3;
+  grid-template-rows: 1fr 17px;
+  gap: 10px;
+  display: grid;
   box-sizing: border-box;
-  margin-bottom: 30px;
 }
 
 .bottom {
   display: flex;
   justify-content: space-between;
+  grid-row: 2/3;
+  gap: 15px;
 }
 
 .itemCard .customButton {
@@ -312,12 +335,19 @@ h1 {
 }
 
 .itemImageContainer {
-  flex: 1;
+  grid-row: 1/2;
   object-fit: cover;
   overflow: hidden;
   display: flex;
   justify-content: center;
   position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 .itemCard:hover {
@@ -338,7 +368,8 @@ h1 {
 .itemImageContainer img {
   flex: 1;
   align-self: center;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .itemCard .bottom {
@@ -350,6 +381,9 @@ h1 {
 .bottom .priceContainer {
   display: flex;
   justify-content: space-between;
+  text-overflow: ellipsis;
+  height: 100%;
+  width: 100%;
 }
 
 .description {
@@ -360,10 +394,16 @@ h1 {
 
 .bottom .name {
   font-weight: bold;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+  width: 100%;
 }
 
 .bottom .price {
   font-weight: 100;
+  font-size: 14px;
 }
 
 .itemCard:hover .bottom .name {
