@@ -5,7 +5,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Cart from './components/pages/Cart';
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -75,17 +75,17 @@ function App() {
   return (
     <div className="app">
       {cartPanel}
-      <BrowserRouter>
+      <HashRouter>
         <ToastContainer />
         <div className={classes}>
-          <Header onBasketClick={() => setOnBasket(!onBasket)} isHome={isHome} articlesAmount={basket.length}/>
+          <Header onBasketClick={() => setOnBasket(!onBasket)} isHome={isHome} articlesAmount={basket.reduce((cumm, curr) => Number(cumm) + Number(curr[1]), 0)}/>
           <Routes>
               <Route path="/" element={<Home onChange={() => {setIsHome(true); setOnBasket(false) }} />} />
               <Route path="/shop/:category" element={<Shop onAddToBasket={addToBasket} onChange={() => {setIsHome(false); setOnBasket(false)}}/>} />
               <Route path="/about" element={<About onChange={() => {setIsHome(false); setOnBasket(false); }}/>} />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

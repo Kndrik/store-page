@@ -12,7 +12,7 @@ const Home = (props) => {
             <div className="homeContainer">
                 <div className="homeTitle">AUTUMN</div>
                 <div className="homeTitle thin">COLLECTION</div>
-                <Link className="customButton homeButton" to="/shop">Shop Now</Link>
+                <Link className="customButton homeButton" to="/shop/all">Shop Now</Link>
             </div>
         </div>
     );
