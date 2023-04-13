@@ -2,10 +2,10 @@ import Button from './Button';
 
 const ItemCard = (props) => {
     return (
-        <div className="itemCard" onClick={props.onAddToBasket}>
+        <div className="itemCard">
             <div className="itemImageContainer">
             <img src={props.image} alt="Product image" />
-                <div className="itemOverlay">
+                <div onClick={props.onAddToBasket} className="itemOverlay">
                     <Button text="Add to basket"/>
                 </div>
             </div>

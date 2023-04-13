@@ -179,9 +179,9 @@ body {
 }
 
 .badge {
-  width: 5px;
-  height: 5px;
-  font-size: 12px;
+  width: 6px;
+  height: 6px;
+  font-size: 10px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

@@ -9,9 +9,6 @@ const Shop = (props) => {
     useEffect(() => {
         props.onChange();
         fetchItemsFromCategory();
-        // category.forEach((category) => {
-        //     fetchItemsFromCategory(category);
-        // });
     }, [category]);
 
     async function fetchItemsFromCategory() {
@@ -19,22 +16,20 @@ const Shop = (props) => {
             await fetch('https://fakestoreapi.com/products') :
             await fetch(`https://fakestoreapi.com/products/category/${category}`);
         result = await result.json();
-        console.log(result);
         setItems(result);
-        console.log(items);
     }
 
     return (
         <div className="shop">
             {
-                items.map((item, i) => {
+                items.map((item) => {
                     return (
                         <ItemCard price={item.price}
                                   name={item.title}
                                   image={item.image}
                                   description={item.description}
                                   key={item.id}
-                                  onAddToBasket={() => props.onAddToBasket(item.id)}
+                                  onAddToBasket={() => props.onAddToBasket(item)}
                         />
                     );
                 })
