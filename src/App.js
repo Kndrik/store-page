@@ -59,14 +59,25 @@ function App() {
     });
     setBasket([...array]);
   }
+
+  function removeItemFromBasket(article) {
+    let array = [];
+    basket.forEach((elem) => {
+      if (elem[0].id !== article.id) {
+        array.push(elem);
+      }
+    })
+    setBasket([...array]);
+  }
   
-  const cartPanel = onBasket ? <Cart updateBasket={updateBasket} basket={basket} /> : '';
+  const cartPanel = onBasket ? <Cart onClose={() => setOnBasket(false)} updateBasket={updateBasket} deleteItem={removeItemFromBasket} basket={basket} /> : '';
 
   return (
+    <div className="app">
+      {cartPanel}
       <BrowserRouter>
         <ToastContainer />
         <div className={classes}>
-          {cartPanel}
           <Header onBasketClick={() => setOnBasket(!onBasket)} isHome={isHome} articlesAmount={basket.length}/>
           <Routes>
               <Route path="/" element={<Home onChange={() => {setIsHome(true); setOnBasket(false) }} />} />
@@ -75,6 +86,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
+    </div>
   );
 }
 

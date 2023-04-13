@@ -418,18 +418,31 @@ h1 {
 }
 
 .cart {
-  position: absolute;
-  width: 450px;
+  position: fixed;
+  width: 100%;
   height: calc(100vh - var(--header-height));
   overflow: scroll;
   top: var(--header-height);
   right: 0px;
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  z-index: 2;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.113);
+  z-index: 1;
+}
+
+.panel {
   background-color: white;
   z-index: 2;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   box-sizing: border-box;
   padding: 30px;
 }
+
+
 
 .basketList {
   list-style: none;
@@ -529,4 +542,21 @@ h2 {
   background-color: white;
   border: 2px solid var(--text-special-color);
   color: var(--text-special-color);
+}
+
+.basketItemCross {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 100;
+  color: var(--text-special-color);
+}
+
+.basketItemCross:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.app {
+  position: relative;
 }

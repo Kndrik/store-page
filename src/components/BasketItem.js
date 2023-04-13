@@ -7,7 +7,7 @@ const BasketItem = (props) => {
             <div className="basketItemRight">
                 <div className="top">
                     <span className="basketItemTitle">{props.item.title}</span>
-                    <button>x</button>
+                    <button onClick={() => props.deleteItem(props.item)} className="basketItemCross">x</button>
                 </div>
                 <div className="bottom">
                     <input type="number" min="1" max="100" value={props.amount} 
