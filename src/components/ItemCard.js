@@ -2,7 +2,7 @@ import Button from './Button';
 
 const ItemCard = (props) => {
     return (
-        <div className="itemCard">
+        <div className="itemCard" onClick={props.onAddToBasket}>
             <div className="itemImageContainer">
             <img src={props.image} alt="Product image" />
                 <div className="itemOverlay">

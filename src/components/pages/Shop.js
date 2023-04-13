@@ -33,7 +33,8 @@ const Shop = (props) => {
                                   name={item.title}
                                   image={item.image}
                                   description={item.description}
-                                  key={i}
+                                  key={item.id}
+                                  onAddToBasket={() => props.onAddToBasket(item.id)}
                         />
                     );
                 })
