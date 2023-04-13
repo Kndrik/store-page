@@ -2,7 +2,7 @@
 
 html {
   --header-height: 50px;
-  --text-special-color: rgb(42, 40, 68);
+  --text-special-color: rgb(37, 35, 82);
   --hover-color: rgb(247, 243, 241);
   font-family: 'Roboto', sans-serif;
 }
@@ -15,6 +15,7 @@ body {
 .pageContainer {
   transition: background-image 1s;
   background-image: none;
+  position: relative;
 }
 
 .pageContainer.visible {
@@ -414,4 +415,118 @@ h1 {
   background-color: var(--text-special-color);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   color: white;
+}
+
+.cart {
+  position: absolute;
+  width: 450px;
+  height: calc(100vh - var(--header-height));
+  overflow: scroll;
+  top: var(--header-height);
+  right: 0px;
+  background-color: white;
+  z-index: 2;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.basketList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.basketItem {
+  border-bottom: 1px solid rgb(193, 193, 193);
+  padding-bottom: 20px;
+  height: 65px;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.basketImageContainer {
+  aspect-ratio: 1/1;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.basketImageContainer img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.basketItemRight {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.basketItemRight .top {
+  flex: 1;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-overflow: ellipsis;
+  overflow: scroll;
+}
+
+.basketItemRight .bottom {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.basketItemTitle {
+  font-size: 14px;
+  color: var(--text-special-color);
+  font-weight: 600;
+}
+
+.basketItemPrice {
+  font-weight: 100;
+  font-size: 14px;
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--text-special-color);
+}
+
+.cartRecap {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-special-color);
+}
+
+.recapTotal {
+  font-weight: bold;
+}
+
+.total {
+  font-weight: 100;
+}
+
+.cartRecap .customButton {
+  background-color: var(--text-special-color);
+  color: white;
+}
+
+.cartRecap .customButton:hover {
+  background-color: white;
+  border: 2px solid var(--text-special-color);
+  color: var(--text-special-color);
 }

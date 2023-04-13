@@ -24,7 +24,7 @@ const Header = (props) => {
                 <HeaderElem linkTo="/about" text="ABOUT" />
             </div>
             <div className="right">
-                <HeaderBasket amount={props.articlesAmount} />
+                <HeaderBasket onBasketClick={props.onBasketClick} amount={props.articlesAmount} />
             </div>
         </div>
     );

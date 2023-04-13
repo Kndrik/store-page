@@ -9,7 +9,7 @@ const HeaderBasket = (props) => {
     }
 
     return (
-        <div className="headerBasket">
+        <div onClick={props.onBasketClick} className="headerBasket">
             <span className="material-symbols-outlined basket">shopping_basket</span>
             {badge}
         </div>
