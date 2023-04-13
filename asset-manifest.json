@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/store-page/static/css/main.94247bef.css",
-    "main.js": "/store-page/static/js/main.f232ae95.js",
+    "main.js": "/store-page/static/js/main.a5d7c93d.js",
     "static/media/SuitsOnDummies.jpg": "/store-page/static/media/SuitsOnDummies.40bbd60cb042ffdf2a58.jpg",
     "static/media/coffeetable.jpg": "/store-page/static/media/coffeetable.d7f079727e186dd017fc.jpg",
     "index.html": "/store-page/index.html",
     "main.94247bef.css.map": "/store-page/static/css/main.94247bef.css.map",
-    "main.f232ae95.js.map": "/store-page/static/js/main.f232ae95.js.map"
+    "main.a5d7c93d.js.map": "/store-page/static/js/main.a5d7c93d.js.map"
   },
   "entrypoints": [
     "static/css/main.94247bef.css",
-    "static/js/main.f232ae95.js"
+    "static/js/main.a5d7c93d.js"
   ]
 }
