@@ -2,14 +2,14 @@
 
 html {
   --header-height: 50px;
-  --text-special-color: rgb(68, 46, 40);
-  --hover-color: rgb(241, 235, 233);
+  --text-special-color: rgb(42, 40, 68);
+  --hover-color: rgb(247, 243, 241);
   font-family: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: var(--hover-color);
+  background-color: rgb(249, 248, 248);
 }
 
 .pageContainer {
@@ -40,12 +40,16 @@ body {
   padding-left: 10px;
   padding-right: 20px;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-  transition: background-color 0.5s;
+  transition: background-color 0.3s;
   background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .header.transparent {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .header.transparent:hover {
@@ -73,7 +77,46 @@ body {
   justify-content: center;
   transition: font-size 0.3s, background-color 0.3s;
   font-weight: 300;
+  font-size: 13px;
   color: var(--text-special-color);
+  position: relative;
+}
+
+.headerElem:hover .dropDown {
+  visibility: visible;
+}
+
+.dropDown {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  visibility: hidden;
+}
+
+.dropDownList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.categoryElem {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.categoryElem:hover {
+  text-decoration: underline;
 }
 
 .header.transparent .headerElem {
@@ -88,7 +131,7 @@ body {
 .headerElem:hover {
   cursor: pointer;
   background-color: var(--hover-color);
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .headerElem.active {
@@ -102,7 +145,7 @@ body {
 }
 
 .basket {
-  font-size: 26px;
+  font-size: 20px;
   padding: 10px;
   border-radius: 50%;  
   transition: font-size 0.3s, background-color 0.3s;
@@ -119,7 +162,7 @@ body {
 
 .basket:hover {
   cursor: pointer;
-  font-size: 27px;
+  font-size: 21px;
   background-color: var(--hover-color);
 }
 
@@ -241,4 +284,94 @@ a {
 h1 {
   padding: 0;
   margin: 0;
+}
+
+.shop {
+  padding: 30px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-flow: row;
+}
+
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemCard .customButton {
+  width: 100%;
+}
+
+.itemImageContainer {
+  flex: 1;
+  object-fit: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.itemCard:hover {
+  cursor: pointer;
+}
+
+.itemCard:hover .itemImageContainer .itemOverlay {
+  visibility: visible;
+}
+
+.itemOverlay {
+  visibility: hidden;
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+
+.itemImageContainer img {
+  flex: 1;
+  align-self: center;
+  width: 100%;
+}
+
+.itemCard .bottom {
+  color: rgb(25, 25, 84);
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom .priceContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  font-weight: 100;
+  font-size: small;
+  text-overflow: ellipsis;
+}
+
+.bottom .name {
+  font-weight: bold;
+}
+
+.bottom .price {
+  font-weight: 100;
+}
+
+.itemCard:hover .bottom .name {
+  color: rgb(142, 70, 40);
+}
+
+.itemImageContainer:hover button:hover {
+  background-color: var(--text-special-color);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  color: white;
 }

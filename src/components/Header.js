@@ -7,7 +7,7 @@ const Header = (props) => {
         <div className={classes}>
             <div className="left">
                 <HeaderElem linkTo="/" text="CAFE BUSINESS" classes="title"/>
-                <HeaderElem linkTo="/shop" text="SHOP" />
+                <HeaderElem categories={['men', 'women', 'accessories', 'things']} linkTo="/shop" text="SHOP" />
                 <HeaderElem linkTo="/about" text="ABOUT" />
             </div>
             <div className="right">
